@@ -3,6 +3,16 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Geek/stay night</title>
+	<link rel="prefetch" href="./img/num/0.png">
+	<link rel="prefetch" href="./img/num/1.png">
+	<link rel="prefetch" href="./img/num/2.png">
+	<link rel="prefetch" href="./img/num/3.png">
+	<link rel="prefetch" href="./img/num/4.png">
+	<link rel="prefetch" href="./img/num/5.png">
+	<link rel="prefetch" href="./img/num/6.png">
+	<link rel="prefetch" href="./img/num/7.png">
+	<link rel="prefetch" href="./img/num/8.png">
+	<link rel="prefetch" href="./img/num/9.png">
 	<style>
 	* {
 		text-rendering: optimzeLegibility;
@@ -97,7 +107,7 @@
 	<div class="cont" style="opacity: 0;">
 		<div class="content">
 			<div class="logo-container">
-				<img class="gsn-logo-img" src="/img/gsn-logo-red.jpg">
+				<img class="gsn-logo-img" src="./img/gsn-logo-red.jpg">
 				<div class="countdown">
 					<span class="countdown-content" id="countdown-content"></span>
 				</div>
@@ -129,7 +139,7 @@
 			.replace('D', result.D.toString().length == 1 ? '0' + result.D.toString() : result.D.toString())
 			.replace('M', result.M.toString().length == 1 ? '0' + result.M.toString() : result.M.toString())
 			.replace('S', result.S.toString().length == 1 ? '0' + result.S.toString() : result.S.toString())
-			.replace(/(\d)/g, '<img class="the-figures" src="/img/num/$1.png">');
+			.replace(/(\d)/g, '<img class="the-figures" src="./img/num/$1.png">');
 			dd = dd - 0.1;
 			document.getElementsByClassName('cont')[0].style.opacity = 1;
 		}, 100);
