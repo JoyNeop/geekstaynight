@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Geek/stay night</title>
+	<style>
+	* {
+		text-rendering: optimzeLegibility;
+		box-sizing: border-box;
+	}
+
+	.the-figures {
+		max-height: 3rem;
+		margin: 0 3px;
+	}
+
+	body {
+		font-family: 'Erato', serif;
+		font-family: Palatino, 'Georgia', 'Times New Roman', serif;
+		color: #FFF;
+		background: #000;
+
+		padding: 0;
+		margin: 0;
+	}
+	.cont {
+		-webkit-transition: all ease 500ms;
+		-moz-transition: all ease 500ms;
+		transition: all ease 500ms;
+	}
+	.logo-container {
+		position: absolute;
+		top: 50vh;
+		left: 50vw;
+		-webkit-transform: translate(-50%, -67%);
+		transform: translate(-50%, -67%);
+	}
+	.countdown {
+		font-size: 4rem;
+		text-align: center;
+	}
+	@media screen and (max-width: 449px) {
+		html, body {
+			font-size: 15px;
+		}
+		.content {
+			padding: 0 20px;
+		}
+		.logo-container, img.gsn-logo-img {
+			max-width: 80vw;
+		}
+	}
+	@media screen and (min-width: 450px) and (max-width: 799px) {
+		html, body {
+			font-size: 15px;
+		}
+		.logo-container, img.gsn-logo-img {
+	    	max-width: 70vw;
+	    	max-height: 60vw;
+	    }
+	}
+	@media screen and (min-width: 800px) {
+		html, body {
+			font-size: 15px;
+		}
+		.logo-container, img.gsn-logo-img {
+	    	max-width: 70vw;
+	    	max-height: 50vh;
+	    }
+	}
+	footer {
+		text-align: center;
+		letter-spacing: 0.03rem;
+
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100vw;
+		padding: 0 0 20px;
+	}
+	footer a {
+		font-size: 0.8rem;
+		color: #888;
+		text-decoration: none;
+	}
+	</style>
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<header>
+	</header>
+	<div class="cont" style="opacity: 0;">
+		<div class="content">
+			<div class="logo-container">
+				<img class="gsn-logo-img" src="/img/gsn-logo-red.jpg">
+				<div class="countdown">
+					<span class="countdown-content" id="countdown-content"></span>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<a href="/">&copy; Copyright <script type="text/javascript">document.write((new Date()).getFullYear());</script> All Rights Reserved by Joy Neop</a>
+		</footer>
+	</div>
+	<script>
+	(function(){
+		window.dd = (Math.abs( new Date() - (new Date('Aug 22, 2016 6:13:00')).getTime() + 7e10*Math.random() )) / 1000;
+		window.setInterval(function(){
+			var d = dd;
+			var seg = {
+				'S': 60,
+				'M': 60*60,
+				'D': 60*60*24,
+				'W': 60*60*24*7
+			};
+			var result = {};
+			result.W = Math.floor( (d/seg.W) );
+			result.D = Math.floor( d%seg.W/seg.D );
+			result.M = Math.floor( d%seg.M/seg.S );
+			result.S = Math.floor( d%seg.S );
+			var countdownContent = document.getElementById('countdown-content');
+			countdownContent.innerHTML = 'W:D:M:S'
+			.replace('W', result.W)
+			.replace('D', result.D.toString().length == 1 ? '0' + result.D.toString() : result.D.toString())
+			.replace('M', result.M.toString().length == 1 ? '0' + result.M.toString() : result.M.toString())
+			.replace('S', result.S.toString().length == 1 ? '0' + result.S.toString() : result.S.toString())
+			.replace(/(\d)/g, '<img class="the-figures" src="/img/num/$1.png">');
+			dd = dd - 0.1;
+			document.getElementsByClassName('cont')[0].style.opacity = 1;
+		}, 100);
+	})();
+	</script>
+</body>
+</html>
