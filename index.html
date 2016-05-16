@@ -3,29 +3,14 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Geek/stay night</title>
-	<link rel="prefetch" href="./img/num/0.png">
-	<link rel="prefetch" href="./img/num/1.png">
-	<link rel="prefetch" href="./img/num/2.png">
-	<link rel="prefetch" href="./img/num/3.png">
-	<link rel="prefetch" href="./img/num/4.png">
-	<link rel="prefetch" href="./img/num/5.png">
-	<link rel="prefetch" href="./img/num/6.png">
-	<link rel="prefetch" href="./img/num/7.png">
-	<link rel="prefetch" href="./img/num/8.png">
-	<link rel="prefetch" href="./img/num/9.png">
 	<style>
 	* {
 		text-rendering: optimzeLegibility;
 		box-sizing: border-box;
 	}
 
-	.the-figures {
-		max-height: 3rem;
-		margin: 0 3px;
-	}
-
 	body {
-		font-family: 'Iowan Old Style', Palatino, 'Georgia', 'Times New Roman', serif;
+		font-family: Erato, 'Iowan Old Style', Palatino, 'Georgia', 'Times New Roman', serif;
 		color: #FFF;
 		background: #000 linear-gradient(#320000, #120000, #000) fixed no-repeat center;
 
@@ -50,6 +35,7 @@
 	}
 	.countdown {
 		font-size: 4rem;
+		font-weight: 600;
 		text-align: center;
 	}
 	@media screen and (max-width: 449px) {
@@ -119,7 +105,7 @@
 	</div>
 	<script>
 	(function(){
-		window.dd = (Math.abs( new Date() - (new Date('Aug 22, 2016 6:13:00')).getTime() + 7e10*Math.random() )) / 1000;
+		window.dd = (Math.abs( new Date() - (new Date('Jul 22, 2017 6:13:00')).getTime() + 7e10*(Math.random()*0) )) / 1000;
 		window.setInterval(function(){
 			var d = dd;
 			var seg = {
@@ -138,8 +124,7 @@
 			.replace('W', result.W)
 			.replace('D', result.D.toString().length == 1 ? '0' + result.D.toString() : result.D.toString())
 			.replace('M', result.M.toString().length == 1 ? '0' + result.M.toString() : result.M.toString())
-			.replace('S', result.S.toString().length == 1 ? '0' + result.S.toString() : result.S.toString())
-			.replace(/(\d)/g, '<img class="the-figures" src="./img/num/$1.png">');
+			.replace('S', result.S.toString().length == 1 ? '0' + result.S.toString() : result.S.toString());
 			dd = dd - 0.1;
 			document.getElementsByClassName('cont')[0].style.opacity = 1;
 		}, 100);
